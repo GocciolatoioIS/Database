@@ -24,7 +24,7 @@ create table prodotto
     descrizione        varchar(300) null,
     prezzo             double       null,
     sconto             double       null,
-    immagine           varchar(50)  null,
+    immagine           mediumblob DEFAULT NULL,
     anno               int          null,
     regione            varchar(30)  null,
     gradazione         int          null,
@@ -41,7 +41,7 @@ create table prodottoordinato
     descrizione        varchar(300) null,
     prezzo             double       null,
     sconto             double       null,
-    immagine           varchar(50)  null,
+    immagine           mediumblob DEFAULT NULL,
     anno               int          null,
     regione            varchar(30)  null,
     gradazione         int          null,
@@ -93,4 +93,6 @@ create table indirizzo_ordine
     ncivico  int         not null,
     nazione	 varchar(10) not null
 );
+
+drop database EnotecaIlGocciolatoioIS;
 
