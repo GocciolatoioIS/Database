@@ -33,7 +33,7 @@ create table prodotto
     nome_categoria     varchar(20)  references categoria(nome) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-create table productordered
+create table prodottoordinato
 (
     product_id 		   int auto_increment primary key,
     nome               varchar(40)  not null,
@@ -93,3 +93,4 @@ create table indirizzo_ordine
     ncivico  int         not null,
     nazione	 varchar(10) not null
 );
+
