@@ -24,7 +24,7 @@ create table prodotto
     descrizione        varchar(300) null,
     prezzo             double       null,
     sconto             double       null,
-    immagine           mediumblob DEFAULT NULL,
+    immagine           varchar(30) DEFAULT NULL,
     anno               int          null,
     regione            varchar(30)  null,
     gradazione         int          null,
@@ -74,15 +74,6 @@ create table indirizzo
     id_utente int references utente(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-create table metodo_pagamento(
-	id 				int auto_increment primary key,
-    numero_carta	varchar(30) not null,
-    cvv 			varchar(3) not null,
-    mese_scadenza	int not null,
-    anno_scadenza	int not null,
-    tipo_carta		varchar(10) not null,
-    id_utente		int references utente(id) ON UPDATE CASCADE ON DELETE RESTRICT
-);
 
 create table indirizzo_ordine
 (
