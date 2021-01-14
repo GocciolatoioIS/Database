@@ -16,7 +16,7 @@ create table ordine
     id_indirizzo int not null references indirizzo_ordine(id)
 );
 
-create table prodotto
+create table prodotto_catalogo
 (
     id 				   int auto_increment primary key,
     nome               varchar(40)  not null,
@@ -24,7 +24,7 @@ create table prodotto
     descrizione        varchar(300) null,
     prezzo             double       null,
     sconto             double       null,
-    immagine           varchar(30) DEFAULT NULL,
+    immagine           varchar(50)  null,
     anno               int          null,
     regione            varchar(30)  null,
     gradazione         int          null,
@@ -33,7 +33,7 @@ create table prodotto
     nome_categoria     varchar(20)  references categoria(nome) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-create table prodottoordinato
+create table prodotto_ordinato
 (
     product_id 		   int auto_increment primary key,
     nome               varchar(40)  not null,
@@ -41,7 +41,7 @@ create table prodottoordinato
     descrizione        varchar(300) null,
     prezzo             double       null,
     sconto             double       null,
-    immagine           mediumblob DEFAULT NULL,
+    immagine           varchar(50)  DEFAULT NULL,
     anno               int          null,
     regione            varchar(30)  null,
     gradazione         int          null,
@@ -74,16 +74,14 @@ create table indirizzo
     id_utente int references utente(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-
 create table indirizzo_ordine
 (
-	id int auto_increment primary key references ordine(id),
+	id int auto_increment primary key,
 	citta    varchar(40) not null,
     cap      int         not null,
     via      varchar(70) not null,
     ncivico  int         not null,
-    nazione	 varchar(10) not null
+    nazione	 varchar(10) not null,
+    id_ordine int references ordine(id)
 );
-
-drop database EnotecaIlGocciolatoioIS;
 
